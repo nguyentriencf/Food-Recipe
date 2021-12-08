@@ -6,10 +6,15 @@ import {
     StatusBar,
     ImageBackground
 } from 'react-native';
-import {images, COLORS, SIZES, FONTS} from "../constants";
+import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
-import {CustomButton} from "../components"
+import {CustomButton} from "../components";
+import FoodRepository from "../adapters/repositories/FoodRepository";
 const Login = ({ navigation }) => {
+
+    React.useEffect(()=>{
+   // FoodRepository.getListFood().then((f) => console.log(f));
+    },[])
     const renderHeader =()=> {
             return (
             <View

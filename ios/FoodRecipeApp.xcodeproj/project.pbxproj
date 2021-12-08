@@ -225,7 +225,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				8B6457A067E73EC9662D7D30 /* [CP] Embed Pods Frameworks */,
 				25693C3E024F72DA8E9E7C59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -248,7 +247,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				EA6056078BD70130960CF88E /* [CP] Embed Pods Frameworks */,
 				14874AAD44C17C205A82FCF5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -402,40 +400,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8B6457A067E73EC9662D7D30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA6056078BD70130960CF88E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EAE009E2A4ADC3E5C4EC0611 /* [CP] Check Pods Manifest.lock */ = {

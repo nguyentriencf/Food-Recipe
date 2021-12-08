@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS,FONTS}from '../constants';
+import {COLORS,FONTS}from '../../constants';
 const CustomButton = ({buttonText, buttonContainerStyle,colors,onPress}) =>{
     if(colors.lenght > 0){
         return(
