@@ -63,8 +63,4 @@ static void InitializeFlipper(UIApplication *application) {
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
-
-#if RCT_DEV
-  [bridge moduleForClass:[RCTDevLoadingView class]];
-#endif
 @end

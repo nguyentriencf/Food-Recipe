@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import SearchComponent from '../../components/SearchComponent';
 import {images, COLORS, SIZES, FONTS} from "../../../constants";
 const Home = ({ navigation }) => {
     return (
@@ -24,6 +25,9 @@ const Home = ({ navigation }) => {
          <ImageBackground style={styles.avatar} source={images.UserProfile1}>
         </ImageBackground>
          </View>
+        </View>
+        <View>
+            <SearchComponent></SearchComponent>
         </View>
         </View>
     )
