@@ -9,12 +9,9 @@ import {
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
 import {CustomButton} from "../components";
-import FoodRepository from "../adapters/repositories/FoodRepository";
 const Login = ({ navigation }) => {
 
-    React.useEffect(()=>{
-   // FoodRepository.getListFood().then((f) => console.log(f));
-    },[])
+   
     const renderHeader =()=> {
             return (
             <View

@@ -1,5 +1,5 @@
 import React from 'react';
-import { moderateScale } from "react-native-size-matters";
+import { moderateScale, s } from "react-native-size-matters";
 import {
     View,
     Text,
@@ -7,9 +7,21 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import SearchComponent from '../../components/SearchComponent';
-import {images, COLORS, SIZES, FONTS} from "../../../constants";
+import SearchComponent from '../components/SearchComponent';
+import TrendingRecipe from '../components/TrendingRecipeComponent';
+import {images, COLORS, SIZES, FONTS} from "../../constants";
+import FoodRepository from "../adapters/repositories/FoodRepository";
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
 const Home = ({ navigation }) => {
+    const [foodList,setFoodList] = React.useState([]);
+    React.useEffect(async()=>{
+        //  FoodRepository.getListFood().then(async(f) => {
+        //     // console.log(f);
+        //    let item = ['foodList',JSON.stringify(f)];
+        //   await AsyncStorage.multiSet([item]);    
+ //  });
+//AsyncStorage.removeItem('foodList');
+         },[])
     return (
         <View style={styles.container}>
         <View style={styles.containerHeader}>
@@ -26,9 +38,14 @@ const Home = ({ navigation }) => {
         </ImageBackground>
          </View>
         </View>
-        <View>
             <SearchComponent></SearchComponent>
-        </View>
+            <View style={styles.titleTrending}>
+            <Text style={styles.textTrending} >Món ăn phổ biến</Text>
+            </View>
+            <View style={styles.listTrending}>
+            <TrendingRecipe></TrendingRecipe>
+            </View>
+     
         </View>
     )
 }
@@ -64,5 +81,19 @@ const styles = StyleSheet.create({
         overflow: "hidden",
         top:65,
         right:-10
+    },
+    listTrending:{
+        top:10,
+        flex:1,
+        marginLeft:0,
+        maxHeight: moderateScale(350, 1)
+    },
+    titleTrending:{
+    marginTop:20,
+     marginLeft:20
+    },
+    textTrending:{
+        color:COLORS.black,
+        ...FONTS.h2,
     }
 })

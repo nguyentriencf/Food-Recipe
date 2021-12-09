@@ -3,7 +3,6 @@ import {Image, StyleSheet, Text, View,TouchableWithoutFeedback, Modal,TextInput,
 import * as Animatable from 'react-native-animatable';
 import {COLORS,filterData,icons} from "../../constants"
 import filter from 'lodash/filter'
-import { serialize } from 'jest-serializer';
 
 
 export default function SearchComponent() {

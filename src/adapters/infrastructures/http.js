@@ -15,6 +15,7 @@ class Http {
         option.url = requestOptions.url;
         if(requestOptions?.params) option.params = requestOptions.params;
         if(requestOptions?.body) option.body = JSON.stringify(requestOptions.body);
+        console.log(option);
        return axios.request(option)
               .then(res=>res.data)
               .catch(err =>console.log(err))
