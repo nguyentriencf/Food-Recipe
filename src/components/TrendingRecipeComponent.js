@@ -13,7 +13,7 @@ const TrendingRecipe  = () =>{
             stores.map( (result,i,store)=>{   
             if (store[i][1] !== null){
              items = JSON.parse(store[i][1]);
-           //  console.log(items);
+            console.log(items);
              data =items.feed;
              setFoodList([...data])
             }else{

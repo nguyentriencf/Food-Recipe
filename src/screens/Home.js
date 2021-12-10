@@ -14,14 +14,13 @@ import FoodRepository from "../adapters/repositories/FoodRepository";
 import AsyncStorage from "@react-native-async-storage/async-storage"; 
 const Home = ({ navigation }) => {
     const [foodList,setFoodList] = React.useState([]);
-    React.useEffect(async()=>{
-        //  FoodRepository.getListFood().then(async(f) => {
-        //     // console.log(f);
-        //    let item = ['foodList',JSON.stringify(f)];
-        //   await AsyncStorage.multiSet([item]);    
- //  });
-//AsyncStorage.removeItem('foodList');
-         },[])
+//     React.useEffect(async()=>{
+//          FoodRepository.getListFood().then(async(f) => {
+//             // console.log(f);
+//            let item = ['foodList',JSON.stringify(f)];
+//           await AsyncStorage.multiSet([item]);    
+//   });
+//          },[])
     return (
         <View style={styles.container}>
         <View style={styles.containerHeader}>

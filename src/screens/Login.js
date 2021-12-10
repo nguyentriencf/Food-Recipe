@@ -8,10 +8,13 @@ import {
 } from 'react-native';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
-import {CustomButton} from "../components";
+import {CustomButton} from "../components"
+import react from 'react';
 const Login = ({ navigation }) => {
+    React.useEffect(()=>{
+        StatusBar.setHidden(true)
 
-   
+    },[]) 
     const renderHeader =()=> {
             return (
             <View
@@ -65,15 +68,25 @@ const Login = ({ navigation }) => {
                  }}>
                      <CustomButton
                       buttonText="Login"
+                      buttonContainerStyle={{
+                          paddingVertical:18,
+                          borderRadius:20
+                      }}
                      colors ={[COLORS.darkGreen,COLORS.lime]}
                      onPress={()=>navigation.replace("Home")}
                      />
-                   
-                      {/* <CustomButton 
-                     buttonText="Sign Up"
+                      <CustomButton
+                      buttonText="Sign Up"
+                       buttonContainerStyle={{
+                        marginTop:SIZES.radius,
+                        paddingVertical:18,
+                          borderRadius:20,
+                          borderWidth:1,
+                          borderColor:COLORS.darkLime
+                      }}
                      colors ={[]}
-                     onPress={()=>navigation.replace("Home")}/> */}
-
+                     onPress={()=>navigation.replace("Home")}
+                     />
                  </View>
              </View>
          )
