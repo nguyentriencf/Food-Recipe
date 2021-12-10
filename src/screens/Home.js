@@ -5,23 +5,25 @@ import {
     Text,
     ImageBackground,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    FlatList
 } from 'react-native';
 import SearchComponent from '../components/SearchComponent';
 import TrendingRecipe from '../components/TrendingRecipeComponent';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
-import FoodRepository from "../adapters/repositories/FoodRepository";
-import AsyncStorage from "@react-native-async-storage/async-storage"; 
+import CategoryComponent from '../components/CategoryComponent';
+import CategoriesRepository from '../adapters/repositories/CategoriesRepository';
+import localStorage from '../adapters/infrastructures/localStorage';
 const Home = ({ navigation }) => {
-    const [foodList,setFoodList] = React.useState([]);
-    React.useEffect(async()=>{
-        //  FoodRepository.getListFood().then(async(f) => {
-        //     // console.log(f);
-        //    let item = ['foodList',JSON.stringify(f)];
-        //   await AsyncStorage.multiSet([item]);    
- //  });
-//AsyncStorage.removeItem('foodList');
-         },[])
+  //  const [compoData,setcompo] = React.useState([<TrendingRecipe/>,<CategoryComponent/>])
+    
+    // React.useEffect(()=>{
+    //     CategoriesRepository.getCategories().then((c)=>{
+    //      //  console.log(Object.values(c));
+    //        const torage = new localStorage();
+    //        torage.set('categoryList',Object.values(c))
+    //     })
+    // },[])
     return (
         <View style={styles.container}>
         <View style={styles.containerHeader}>
@@ -38,15 +40,27 @@ const Home = ({ navigation }) => {
         </ImageBackground>
          </View>
         </View>
-            <SearchComponent></SearchComponent>
-            <View style={styles.titleTrending}>
-            <Text style={styles.textTrending} >Món ăn phổ biến</Text>
-            </View>
-            <View style={styles.listTrending}>
-            <TrendingRecipe></TrendingRecipe>
-            </View>
+        <SearchComponent></SearchComponent>
+       
+        <FlatList
+        style={styles.flatListFood}
+        showsVerticalScrollIndicator ={false}
+        horizontal={false}
+         data={[0]}
+         renderItem={({item})=>(
+             <View>
+            <TrendingRecipe/>
+            <CategoryComponent/>
+             </View>
+           
+         )}
+         keyExtractor={(item,index)=>String(index)}
+        >
+        </FlatList>
+  
      
         </View>
+       
     )
 }
 
@@ -55,7 +69,8 @@ export default Home;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        resizeMode:'cover'
+        resizeMode:'cover',
+        backgroundColor:'white'
     },
     containerHeader:{
        flexDirection:"row"
@@ -88,12 +103,7 @@ const styles = StyleSheet.create({
         marginLeft:0,
         maxHeight: moderateScale(350, 1)
     },
-    titleTrending:{
-    marginTop:20,
-     marginLeft:20
-    },
-    textTrending:{
-        color:COLORS.black,
-        ...FONTS.h2,
+    flatListFood:{
+        flex:1
     }
 })

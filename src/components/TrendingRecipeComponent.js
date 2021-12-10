@@ -1,19 +1,19 @@
 import React from "react"
 import {Image,TouchableOpacity ,FlatList, ImageBackground, StyleSheet,View,Text,SafeAreaView }
  from "react-native"
- import { moderateScale, s } from "react-native-size-matters";
-import AsyncStorage from '@react-native-async-storage/async-storage'
+ import { moderateScale } from "react-native-size-matters";
+import localStorage from '../adapters/infrastructures/localStorage'
 import { COLORS, FONTS,icons } from "../../constants"
 
 const TrendingRecipe  = () =>{
     let [foodList,setFoodList] = React.useState([])
-    React.useEffect(()=>{
-        const foodList = AsyncStorage.multiGet(['foodList']);
+    React.useEffect(async()=>{
+      const storage =new localStorage();
+        const foodList =  storage.get('foodList');
         foodList.then(stores =>{
             stores.map( (result,i,store)=>{   
             if (store[i][1] !== null){
              items = JSON.parse(store[i][1]);
-           //  console.log(items);
              data =items.feed;
              setFoodList([...data])
             }else{
@@ -24,7 +24,11 @@ const TrendingRecipe  = () =>{
         
     },[])
     return(
-       
+     
+          <View style={style.containerFood}>
+           <View style={style.titleTrending}>
+              <Text style={style.textTrending} >Món ăn phổ biến</Text>
+          </View>
             <FlatList
             style={style.listFood}
             showsVerticalScrollIndicator ={false}
@@ -62,14 +66,20 @@ const TrendingRecipe  = () =>{
              )}
              keyExtractor={(item,index) =>item.content.details.recipeId}
             />
-      
+      </View>
      )
 }
 
 const style = StyleSheet.create({
+    containerFood:{
+      flex:0.5
+    },
     listFood:{
         flexDirection:'row',
-        flex:1
+        flex:1,
+        top:10,
+         marginLeft:0,
+         maxHeight: moderateScale(350, 1)
     },
     nameFood:{
         backgroundColor:COLORS.transparentBlack7,
@@ -119,7 +129,15 @@ const style = StyleSheet.create({
       textTime:{
         color:'white',
         ...FONTS.body4,
-      }
+      },
+      titleTrending:{
+        marginTop:20,
+         marginLeft:20
+        },
+      textTrending:{
+            color:COLORS.black,
+            ...FONTS.h2,
+        }
       
 })
 

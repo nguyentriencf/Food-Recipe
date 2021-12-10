@@ -11,6 +11,8 @@ export default function SearchComponent() {
         const [data, setData] =  useState([...filterData])
         const [modalVisible, setModalVisible] = useState(false)
         const [textInputFossued,setTextInputFossued] = useState(true)
+        const [showHint,setShowHint] =useState(false)
+        const [isHintEmpty,setHintEmpty] =useState(true)
         const textInput = useRef(0)
 
 const contains = ({name},query)=>{
@@ -22,15 +24,21 @@ const contains = ({name},query)=>{
 
 
 const handleSearch = text =>{
+    setShowHint(true)
     const dataS = filter(filterData, userSearch =>{
         return contains(userSearch,text)
     })
-
+       console.log(dataS)
+    if(dataS.length === 0){
+        setHintEmpty(false)
+    }else{
+        setHintEmpty(true)
+    }
     setData([...dataS])
 }
 
     return (
-        <View style = {{alignItems:"center"}}>
+        <View style = {{alignItems:"center",marginBottom:10}}>
             <TouchableWithoutFeedback
                     onPress ={()=>{
                         setModalVisible(true)
@@ -54,13 +62,14 @@ const handleSearch = text =>{
                                     animation = {textInputFossued?"fadeInRight":"fadeInLeft"}
                                     duration = {400}
                                     >
-                                 { textInputFossued ?
+                                 { textInputFossued && isHintEmpty  ?
                                  <TouchableOpacity 
                                     onPress = {()=>{
                                         if(textInputFossued)
                                         setModalVisible(false)
                                         setTextInputFossued(true)
                                         setData([...filterData])
+                                        setShowHint(false)
                                             }}
                                  >
                                  <Image style={styles.back} source={icons.back}/> 
@@ -68,8 +77,9 @@ const handleSearch = text =>{
                                  <TouchableOpacity 
                                     onPress = {()=>{
                                         if(textInputFossued)
-                                        setModalVisible(false)
+                                      //  setModalVisible(false)
                                         setTextInputFossued(true)
+                                        setShowHint(false)
                                             }}
                                  >
                                  <Image style={styles.back} source={icons.search}/> 
@@ -79,12 +89,13 @@ const handleSearch = text =>{
 
                             <TextInput 
                                 style ={{width:"90%",fontSize:16}}
-                                placeholder =""
+                                placeholder ="Tìm kiếm..."
                                 autoFocus = {false}
                                 ref = {textInput}
 
                                 onFocus = {()=>{
                                     setTextInputFossued(true)
+                                    setShowHint(true)                           
                                 }} 
 
                                 onBlur = {()=>{
@@ -101,22 +112,29 @@ const handleSearch = text =>{
                          <TouchableOpacity
                           onPress ={()=>{
                                         textInput.current.clear()  
-                                        setData([...filterData])         
+                                        setData([...filterData])
+                                        setHintEmpty(true)      
+                                        setShowHint(false) 
+                                          
                                 }}>
                          <Image style={styles.cancle} source={icons.cancle}/>
                          </TouchableOpacity>
                             </Animatable.View>
                         </View>
                     </View>
-        <FlatList
+    
+          
+                  {showHint ?
+                    <FlatList
             data={data}
             renderItem={({ item }) => (
               <TouchableOpacity 
                        onPress = {() =>{
                             Keyboard.dismiss
-                            setModalVisible(false)
+                          //  setModalVisible(false)
                             setTextInputFossued(true)
                             setData([...filterData])
+                            setShowHint(false)
                                 }} >
                     <View style={styles.view2}>
                         <Text style={{color:COLORS.lightGray2, fontSize:15 }}>{item.name}</Text>
@@ -124,7 +142,9 @@ const handleSearch = text =>{
               </TouchableOpacity>
                 )}
             keyExtractor={item => item.id}
-             />
+             /> : null
+                  }
+        
                 </View>
         </Modal>
 
