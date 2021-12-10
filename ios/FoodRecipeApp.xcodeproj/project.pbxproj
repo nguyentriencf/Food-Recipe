@@ -18,8 +18,8 @@
 		523BBB0EE1644C30ACA29197 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B6554FDAD7A4C73B6A8A348 /* Roboto-Italic.ttf */; };
 		541327DDA24641DE86932C75 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01701F6983154C86AE7A5439 /* RobotoCondensed-Light.ttf */; };
 		58D86F27367442EFBAE5B28C /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B38A09F891604E23A085494F /* Roboto-Black.ttf */; };
-		650AE79543F8F04095CB588B /* libPods-FoodRecipeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E8EA2A358C321C20D9EEEF /* libPods-FoodRecipeApp.a */; };
 		74572C0A0AD541418431FD61 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C7AE14DEA846F2B832CD4A /* Roboto-MediumItalic.ttf */; };
+		7A7E2E46199449D772090BF3 /* libPods-FoodRecipeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CF950ACB28D95FB3D47BB0 /* libPods-FoodRecipeApp.a */; };
 		7D02EF967F894F8EB99CC1CB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D6E483B124BE8B28AC79B /* Roboto-Thin.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		856632ADAABA448291045BB3 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91B3F111623844C1B7D1F429 /* Roboto-BoldItalic.ttf */; };
@@ -27,7 +27,7 @@
 		98E80D575F294C27ACC834DB /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B3FB36D49F3442E84223806 /* RobotoCondensed-BoldItalic.ttf */; };
 		A80AA990C41B4C22886A4D10 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273FC916B4F546C9BEE119C2 /* Roboto-ThinItalic.ttf */; };
 		BF592488270C9DA2006827A3 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF592487270C9DA2006827A3 /* libswiftWebKit.tbd */; };
-		C103E9AA81FB0270BD79E79D /* libPods-FoodRecipeApp-FoodRecipeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 111B340B9C56536BA0A8BA98 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */; };
+		C24E37A7FA2434D9A6F9FB4A /* libPods-FoodRecipeApp-FoodRecipeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 667326E3724A758AEF189CF2 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */; };
 		C27B3818408147B2A4BE6F9E /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4D2AA54A3604FE29C603514 /* RobotoCondensed-Italic.ttf */; };
 		C4A7D470A509464BBD73F23D /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87C8BF03C8CB411BBD7AC8D4 /* Roboto-Bold.ttf */; };
 		D09FA4432831404F898F77B1 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5296B7B9FC3740ED99F82728 /* RobotoCondensed-Regular.ttf */; };
@@ -51,7 +51,6 @@
 		00E356F21AD99517003FC87E /* FoodRecipeAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodRecipeAppTests.m; sourceTree = "<group>"; };
 		01701F6983154C86AE7A5439 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-Light.ttf"; path = "../assets/fonts/RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		0CCBFC7BE19A4509ACADB19B /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
-		111B340B9C56536BA0A8BA98 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodRecipeApp-FoodRecipeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373326F2B404A9DAA3B1EBB /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* FoodRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FoodRecipeApp/AppDelegate.h; sourceTree = "<group>"; };
@@ -63,25 +62,26 @@
 		373C8E0A362C48099F1E2750 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		3B6554FDAD7A4C73B6A8A348 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		42556DDA684245E4A4BDE567 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		438A32975DC45A51BC7FD954 /* Pods-FoodRecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4A0D6E483B124BE8B28AC79B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		5296B7B9FC3740ED99F82728 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-Regular.ttf"; path = "../assets/fonts/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		5B3FB36D49F3442E84223806 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-BoldItalic.ttf"; path = "../assets/fonts/RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		667326E3724A758AEF189CF2 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodRecipeApp-FoodRecipeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C7AE14DEA846F2B832CD4A /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		7747DF5B7320B998A5246654 /* Pods-FoodRecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7FE80D0CB5CA84D7C9988A06 /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FoodRecipeApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85BDB0F5E06F4D0686103585 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-LightItalic.ttf"; path = "../assets/fonts/RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		87C8BF03C8CB411BBD7AC8D4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		90CF950ACB28D95FB3D47BB0 /* libPods-FoodRecipeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodRecipeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3F111623844C1B7D1F429 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		A26945AAF57843B1B41E9720 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		B38A09F891604E23A085494F /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		B79EDA1C73F34594A830AE42 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-Bold.ttf"; path = "../assets/fonts/RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		B8E8EA2A358C321C20D9EEEF /* libPods-FoodRecipeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodRecipeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC377710574BFEB7FA551C04 /* Pods-FoodRecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BF592487270C9DA2006827A3 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
-		CA49998E9770F625AA40ABFF /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		E16E65763EE8E27426B3A93B /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D2AA54A3604FE29C603514 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-Italic.ttf"; path = "../assets/fonts/RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		EF0D2A1BC1B9FCE73C69A75D /* Pods-FoodRecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp.release.xcconfig"; sourceTree = "<group>"; };
+		F7AA58A4D1EE4C951D37B90C /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C103E9AA81FB0270BD79E79D /* libPods-FoodRecipeApp-FoodRecipeAppTests.a in Frameworks */,
+				C24E37A7FA2434D9A6F9FB4A /* libPods-FoodRecipeApp-FoodRecipeAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF592488270C9DA2006827A3 /* libswiftWebKit.tbd in Frameworks */,
-				650AE79543F8F04095CB588B /* libPods-FoodRecipeApp.a in Frameworks */,
+				7A7E2E46199449D772090BF3 /* libPods-FoodRecipeApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +140,8 @@
 			children = (
 				BF592487270C9DA2006827A3 /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				B8E8EA2A358C321C20D9EEEF /* libPods-FoodRecipeApp.a */,
-				111B340B9C56536BA0A8BA98 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */,
+				90CF950ACB28D95FB3D47BB0 /* libPods-FoodRecipeApp.a */,
+				667326E3724A758AEF189CF2 /* libPods-FoodRecipeApp-FoodRecipeAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,10 +149,10 @@
 		3B74FE420115F558019A5298 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BC377710574BFEB7FA551C04 /* Pods-FoodRecipeApp.debug.xcconfig */,
-				EF0D2A1BC1B9FCE73C69A75D /* Pods-FoodRecipeApp.release.xcconfig */,
-				E16E65763EE8E27426B3A93B /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */,
-				CA49998E9770F625AA40ABFF /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */,
+				7747DF5B7320B998A5246654 /* Pods-FoodRecipeApp.debug.xcconfig */,
+				438A32975DC45A51BC7FD954 /* Pods-FoodRecipeApp.release.xcconfig */,
+				F7AA58A4D1EE4C951D37B90C /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */,
+				7FE80D0CB5CA84D7C9988A06 /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -221,12 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodRecipeAppTests" */;
 			buildPhases = (
-				EAE009E2A4ADC3E5C4EC0611 /* [CP] Check Pods Manifest.lock */,
+				C1BA498625977FE0F91205F8 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				8B6457A067E73EC9662D7D30 /* [CP] Embed Pods Frameworks */,
-				25693C3E024F72DA8E9E7C59 /* [CP] Copy Pods Resources */,
+				FEE02325CBF140D6B541086F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,14 +241,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodRecipeApp" */;
 			buildPhases = (
-				1E0F53F0CC1A1DF3EB1714E4 /* [CP] Check Pods Manifest.lock */,
+				1BFF9008CDFA4F89CFDAF47E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				EA6056078BD70130960CF88E /* [CP] Embed Pods Frameworks */,
-				14874AAD44C17C205A82FCF5 /* [CP] Copy Pods Resources */,
+				78855CE7ADD0DCB0346D0CFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,24 +346,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		14874AAD44C17C205A82FCF5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1E0F53F0CC1A1DF3EB1714E4 /* [CP] Check Pods Manifest.lock */ = {
+		1BFF9008CDFA4F89CFDAF47E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,58 +368,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25693C3E024F72DA8E9E7C59 /* [CP] Copy Pods Resources */ = {
+		78855CE7ADD0DCB0346D0CFF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B6457A067E73EC9662D7D30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA6056078BD70130960CF88E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp/Pods-FoodRecipeApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EAE009E2A4ADC3E5C4EC0611 /* [CP] Check Pods Manifest.lock */ = {
+		C1BA498625977FE0F91205F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -479,6 +426,23 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FEE02325CBF140D6B541086F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodRecipeApp-FoodRecipeAppTests/Pods-FoodRecipeApp-FoodRecipeAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -512,7 +476,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E16E65763EE8E27426B3A93B /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */;
+			baseConfigurationReference = F7AA58A4D1EE4C951D37B90C /* Pods-FoodRecipeApp-FoodRecipeAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -539,7 +503,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA49998E9770F625AA40ABFF /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */;
+			baseConfigurationReference = 7FE80D0CB5CA84D7C9988A06 /* Pods-FoodRecipeApp-FoodRecipeAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -563,7 +527,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC377710574BFEB7FA551C04 /* Pods-FoodRecipeApp.debug.xcconfig */;
+			baseConfigurationReference = 7747DF5B7320B998A5246654 /* Pods-FoodRecipeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -593,7 +557,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF0D2A1BC1B9FCE73C69A75D /* Pods-FoodRecipeApp.release.xcconfig */;
+			baseConfigurationReference = 438A32975DC45A51BC7FD954 /* Pods-FoodRecipeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
