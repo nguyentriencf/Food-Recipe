@@ -9,7 +9,6 @@ import {
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
 import {CustomButton} from "../components"
-import react from 'react';
 const Login = ({ navigation }) => {
     React.useEffect(()=>{
         StatusBar.setHidden(true)
