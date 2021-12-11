@@ -3,11 +3,11 @@ import {Text,TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS,FONTS}from '../../constants';
 const CustomButton = ({buttonText,colors,onPress,buttonContainerStyle}) =>{
+    console.log(onPress);
     if(colors.length > 0){
         return(
             <TouchableOpacity 
                 onPress={onPress}
-                
             >
                 <LinearGradient 
                 start={{x:0,y:0}}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState }  from 'react';
 import {
     View,
     Text,
@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
-import {CustomButton} from "../components"
+import {CustomButton, LoginScreen} from "../components"
 const Login = ({ navigation }) => {
     React.useEffect(()=>{
         StatusBar.setHidden(true)
 
     },[]) 
+    const [modalVisible, setModalVisible] = useState(false);
     const renderHeader =()=> {
             return (
             <View
@@ -69,10 +70,11 @@ const Login = ({ navigation }) => {
                       buttonText="Login"
                       buttonContainerStyle={{
                           paddingVertical:18,
-                          borderRadius:20
+                          borderRadius:20,
+                          paddingHorizontal:10
                       }}
                      colors ={[COLORS.darkGreen,COLORS.lime]}
-                     onPress={()=>navigation.replace("Home")}
+                     onPress={()=>setModalVisible(true)}
                      />
                       <CustomButton
                       buttonText="Sign Up"
@@ -97,10 +99,10 @@ const Login = ({ navigation }) => {
                 backgroundColor: COLORS.black
             }}
         >
+            <LoginScreen modalVisible={modalVisible} />
              <StatusBar barStyle="light-content"/>
             {renderHeader()}
             {renderDetail()}
-           
         </View>
     )
 }

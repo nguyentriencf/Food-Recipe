@@ -1,7 +1,7 @@
 import React from "react"
 import {Image,TouchableOpacity ,FlatList, ImageBackground, StyleSheet,View,Text,SafeAreaView }
  from "react-native"
- import { moderateScale, s } from "react-native-size-matters";
+ import { moderateScale } from "react-native-size-matters";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { COLORS, FONTS,icons } from "../../constants"
 
