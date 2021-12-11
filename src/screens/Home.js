@@ -13,15 +13,16 @@ import TrendingRecipe from '../components/TrendingRecipeComponent';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import CategoryComponent from '../components/CategoryComponent';
 import CategoriesRepository from '../adapters/repositories/CategoriesRepository';
+import FoodRepository from '../adapters/repositories/FoodRepository';
 import localStorage from '../adapters/infrastructures/localStorage';
 const Home = ({ navigation }) => {
   //  const [compoData,setcompo] = React.useState([<TrendingRecipe/>,<CategoryComponent/>])
     
     // React.useEffect(()=>{
-    //     CategoriesRepository.getCategories().then((c)=>{
+    //     FoodRepository.getListFoodTrending().then((c)=>{
     //      //  console.log(Object.values(c));
     //        const torage = new localStorage();
-    //        torage.set('categoryList',Object.values(c))
+    //        torage.set('trendingListFood',Object.values(c))
     //     })
     // },[])
     return (

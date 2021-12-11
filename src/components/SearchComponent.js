@@ -3,8 +3,9 @@ import {Image, StyleSheet, Text, View,TouchableWithoutFeedback, Modal,TextInput,
 import * as Animatable from 'react-native-animatable';
 import {COLORS,filterData,icons} from "../../constants"
 import filter from 'lodash/filter'
-
-
+import FoodRepository from '../adapters/repositories/FoodRepository';
+import FoodRecipeResult from './FoodRecipeResultComponent';
+import localStorage from '../adapters/infrastructures/localStorage';
 export default function SearchComponent() {
 
    
@@ -14,6 +15,9 @@ export default function SearchComponent() {
         const [showHint,setShowHint] =useState(false)
         const [isHintEmpty,setHintEmpty] =useState(true)
         const textInput = useRef(0)
+        const [valueInput,setValueInput] = useState('')
+        const [dataResult,setDataResult] = useState([])
+       const [dataSearch,setDataSearch] =useState([])
 
 const contains = ({name},query)=>{
     if(name.includes(query)){
@@ -21,14 +25,44 @@ const contains = ({name},query)=>{
     }
     return false
 }
+const initDataFood =()=>{
+    const storage =new localStorage();
 
+    const foodListTrending =  storage.get('trendingListFood');
+    foodListTrending.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const dataTrending = items[0];
+        const foodListPopular =  storage.get('foodList');
+        foodListPopular.then(stores =>{
+          stores.map( (result,i,store)=>{   
+          if (store[i][1] !== null){
+          const items = JSON.parse(store[i][1]);
+          const data = items.feed;
+        const dataFood = dataTrending.concat(data);
+         setDataSearch(dataFood)
+          }else{
+              console.log("empty");
+          }
+      })   
+        });     
+        }else{
+            console.log("empty");
+        }
+    })   
+      });
+    
+     
+    
+}
 
 const handleSearch = text =>{
     setShowHint(true)
+    setValueInput(text)
     const dataS = filter(filterData, userSearch =>{
         return contains(userSearch,text)
     })
-       console.log(dataS)
     if(dataS.length === 0){
         setHintEmpty(false)
     }else{
@@ -36,12 +70,20 @@ const handleSearch = text =>{
     }
     setData([...dataS])
 }
-
+const searchFood = (text)=>{
+    console.log(text)
+    setValueInput(text)
+    const query = text.toLowerCase().trim();
+    const tmpData = dataSearch;
+   const rs = tmpData.filter(item => item.display.displayName.toLowerCase().includes(query))
+   setDataResult(rs)
+}
     return (
         <View style = {{alignItems:"center",marginBottom:10}}>
             <TouchableWithoutFeedback
                     onPress ={()=>{
-                        setModalVisible(true)
+                        setModalVisible(true)      
+                        initDataFood();      
                     }}
                 >
                 <View style = {styles.SearchArea}>
@@ -80,6 +122,7 @@ const handleSearch = text =>{
                                       //  setModalVisible(false)
                                         setTextInputFossued(true)
                                         setShowHint(false)
+                                        searchFood(valueInput)
                                             }}
                                  >
                                  <Image style={styles.back} source={icons.search}/> 
@@ -91,6 +134,7 @@ const handleSearch = text =>{
                                 style ={{width:"90%",fontSize:16}}
                                 placeholder ="Tìm kiếm..."
                                 autoFocus = {false}
+                                value={valueInput}
                                 ref = {textInput}
 
                                 onFocus = {()=>{
@@ -114,7 +158,8 @@ const handleSearch = text =>{
                                         textInput.current.clear()  
                                         setData([...filterData])
                                         setHintEmpty(true)      
-                                        setShowHint(false) 
+                                        setShowHint(false)
+                                       
                                           
                                 }}>
                          <Image style={styles.cancle} source={icons.cancle}/>
@@ -135,6 +180,7 @@ const handleSearch = text =>{
                             setTextInputFossued(true)
                             setData([...filterData])
                             setShowHint(false)
+                            searchFood(item.name);
                                 }} >
                     <View style={styles.view2}>
                         <Text style={{color:COLORS.lightGray2, fontSize:15 }}>{item.name}</Text>
@@ -142,7 +188,17 @@ const handleSearch = text =>{
               </TouchableOpacity>
                 )}
             keyExtractor={item => item.id}
-             /> : null
+             /> : 
+                <FlatList
+                style={styles.foodResult}
+        showsVerticalScrollIndicator ={false}
+         data={[0]}
+         renderItem={({item})=>(
+            <FoodRecipeResult props={dataResult}/>
+         )}
+         keyExtractor={(item,index)=>String(index)}
+        >
+        </FlatList>
                   }
         
                 </View>
@@ -189,8 +245,7 @@ const styles = StyleSheet.create({
          paddingLeft:10,
          paddingRight:10,
          padding:10,
-         top:25
-  
+         top:35
       },
 
     SearchArea:{
@@ -226,6 +281,11 @@ const styles = StyleSheet.create({
     },
     modal :{
         flex:1
+    },
+    foodResult:{
+    marginVertical:60,
+    flex:1,
+    bottom:30
     }
 
 })
