@@ -1,12 +1,8 @@
 import React, {useState} from "react";
-import { View,Text, StatusBar, Modal, StyleSheet } from "react-native";
+import { View,Text, StatusBar, Modal, StyleSheet,KeyboardAvoidingView,TextInput } from "react-native";
 import {COLORS,FONTS,SIZES,icons} from '../../constants';
-
-import {CustomButtonIcon} from '../components'
+import {CustomButtonIcon,LoginForm} from '../components'
 const LoginScreen = ({modalVisible})=>{
-    
-//   const  [openModal, setModalVisible] = useState(modalVisible)
-
     const renderHeader =() =>{
         return(
             <View 
@@ -63,15 +59,18 @@ const LoginScreen = ({modalVisible})=>{
                 onPress={()=>console.log('pressed')}
                   buttonContainerStyle={styles.buttonContainerGmailStyle}
                />
+
                 </View>
+                <LoginForm/>
+                
             </View>
         )
     }
-    const renderInput = () =>{
-
-    }
     return(
-        <Modal
+        <KeyboardAvoidingView
+         behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+             <Modal
          visible={modalVisible}
         presentationStyle='overFullScreen'
       >
@@ -79,10 +78,11 @@ const LoginScreen = ({modalVisible})=>{
         <View   style={styles.viewContainer }>
         {renderHeader()}
         {renderFormalLogin()}
-         
-
         </View>
         </Modal>
+
+        </KeyboardAvoidingView>
+       
     )
 }
 
@@ -111,16 +111,16 @@ const styles = StyleSheet.create({
                     alignItems:'center'
                },
     renderFormalLoginStyle:{
-                flex:1,
-                paddingHorizontal: SIZES.padding
+                // flex:1,
+                  paddingHorizontal:15,
             },
             buttonContainerFacebookStyle:{
                     marginTop:SIZES.radius,
                     borderWidth:2,
                     borderColor:'#1f1f1f',
-                    height:75,
-                    width:160,
-                    paddingHorizontal:10,
+                    height:70,
+                    width:170,
+                    // paddingHorizontal:1,
                     borderRadius:10,
                     justifyContent:'center',
                     alignItems:'center',
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
                     marginTop:SIZES.radius,
                     borderWidth:2,
                     borderColor:'#1f1f1f',
-                    height:75,
-                    width:160,
-                    paddingHorizontal:10,
+                    height:70,
+                    width:170,
+                    // paddingHorizontal:10,
                     borderRadius:10,
                     justifyContent:'center',
                     alignItems:'center',
