@@ -25,6 +25,10 @@ const salt = require("../assets/icons/salt.png")
 const sugar = require("../assets/icons/sugar.png")
 const shrimp = require("../assets/icons/shrimp.png")
 const tomato = require("../assets/icons/tomato.png")
+const facebook = require("../assets/icons/facebook.png")
+const gmail = require("../assets/icons/gmail.png")
+
+
 
 export default {
     bookmark,
@@ -54,5 +58,7 @@ export default {
     pepper,
     salt,
     sugar,
-    cancle
+    cancle,
+    facebook,
+    gmail
 }

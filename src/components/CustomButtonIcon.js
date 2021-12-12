@@ -13,8 +13,8 @@ const CustomButtonIcon = ({icons,buttonContainerStyle,onPress}) =>{
                    source={icons}
                   resizeMode='contain'
                 style={{
-                height:20,
-                width:20,
+                height:25,
+                width:25,
                 tintColor:COLORS.darkGreen 
             }}
                />
