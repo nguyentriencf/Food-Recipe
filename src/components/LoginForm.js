@@ -22,7 +22,7 @@ const LoginForm = () =>{
         style={styles.inputStyle}
        />
        <View style={styles.viewContainer}>
-                    <CustomButton buttonText="Login"
+                    <CustomButton buttonText="Đăng nhập"
                       buttonContainerStyle={{
                           paddingVertical:18,
                           borderRadius:20,

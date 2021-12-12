@@ -17,9 +17,9 @@ const LoginScreen = ({modalVisible})=>{
                     style = {{
                             marginLeft:30,
                             color: COLORS.white,
-                            ...FONTS.largeTitle,
+                            ...FONTS.h1,
                             lineHeight:45,
-                             marginTop:SIZES.radius,
+                             marginTop:5,
 
                         }}>
                             Đăng nhập
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
                     marginTop:SIZES.radius,
                     borderWidth:2,
                     borderColor:COLORS.darkLime,
-                    height:45,
+                    height:40,
                     width:45,
                     paddingHorizontal:10,
                     borderRadius:10,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
                },
     renderFormalLoginStyle:{
                 // flex:1,
-                  paddingHorizontal:15,
+                  paddingHorizontal:10,
             },
             buttonContainerFacebookStyle:{
                     marginTop:SIZES.radius,
