@@ -12,7 +12,7 @@ export default function SearchComponent() {
         const [data, setData] =  useState([...filterData])
         const [modalVisible, setModalVisible] = useState(false)
         const [textInputFossued,setTextInputFossued] = useState(true)
-        const [showHint,setShowHint] =useState(false)
+        const [showHint,setShowHint] =useState(true)
         const [isHintEmpty,setHintEmpty] =useState(true)
         const textInput = useRef(0)
         const [valueInput,setValueInput] = useState('')
@@ -71,7 +71,6 @@ const handleSearch = text =>{
     setData([...dataS])
 }
 const searchFood = (text)=>{
-    console.log(text)
     setValueInput(text)
     const query = text.toLowerCase().trim();
     const tmpData = dataSearch;
@@ -194,7 +193,7 @@ const searchFood = (text)=>{
         showsVerticalScrollIndicator ={false}
          data={[0]}
          renderItem={({item})=>(
-            <FoodRecipeResult props={dataResult}/>
+            <FoodRecipeResult props={dataResult} nameFood={valueInput}/>
          )}
          keyExtractor={(item,index)=>String(index)}
         >

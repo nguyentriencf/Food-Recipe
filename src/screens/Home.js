@@ -1,5 +1,5 @@
 import React from 'react';
-import { moderateScale, s } from "react-native-size-matters";
+import { moderateScale} from "react-native-size-matters";
 import {
     View,
     Text,
@@ -15,16 +15,20 @@ import CategoryComponent from '../components/CategoryComponent';
 import CategoriesRepository from '../adapters/repositories/CategoriesRepository';
 import FoodRepository from '../adapters/repositories/FoodRepository';
 import localStorage from '../adapters/infrastructures/localStorage';
-const Home = ({ navigation }) => {
-  //  const [compoData,setcompo] = React.useState([<TrendingRecipe/>,<CategoryComponent/>])
-    
-    // React.useEffect(()=>{
-    //     FoodRepository.getListFoodTrending().then((c)=>{
-    //      //  console.log(Object.values(c));
-    //        const torage = new localStorage();
-    //        torage.set('trendingListFood',Object.values(c))
-    //     })
-    // },[])
+const Home = ({navigation,route}) => {
+
+    const [foodPopulars,setfoodPopulars] = React.useState([...route.params.data])
+   React.useEffect(()=>{
+        // FoodRepository.getListFoodTrending().then((c)=>{
+        //  //  console.log(Object.values(c));
+        //    const torage = new localStorage();
+        //    torage.set('trendingListFood',Object.values(c))
+        // })
+       // const data = route.params.data;
+   //  setfoodPopulars(data);
+      
+   },[])
+ 
     return (
         <View style={styles.container}>
         <View style={styles.containerHeader}>
@@ -50,7 +54,7 @@ const Home = ({ navigation }) => {
          data={[0]}
          renderItem={({item})=>(
              <View>
-            <TrendingRecipe/>
+            <TrendingRecipe props={foodPopulars}/>
             <CategoryComponent/>
              </View>
            
@@ -58,8 +62,6 @@ const Home = ({ navigation }) => {
          keyExtractor={(item,index)=>String(index)}
         >
         </FlatList>
-  
-     
         </View>
        
     )

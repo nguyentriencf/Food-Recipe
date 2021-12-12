@@ -66,7 +66,7 @@ const Login = ({ navigation }) => {
                      <CustomButton
                       buttonText="Login"
                      colors ={[COLORS.darkGreen,COLORS.lime]}
-                     onPress={()=>navigation.replace("Home")}
+                     onPress={()=>navigation.replace("Splash")}
                      />
                    
                       {/* <CustomButton 

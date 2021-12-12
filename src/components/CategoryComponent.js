@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList,View,Text,StyleSheet,ImageBackground,TouchableOpacity,
-ActivityIndicator }
+ActivityIndicator,Animated }
  from "react-native";
 import{FONTS,COLORS,dummyData} from '../../constants';
 import { moderateScale } from "react-native-size-matters";
@@ -12,12 +12,22 @@ const CategoryComponent = ()=>{
     let [limit,setLimit] =React.useState(5)
     const [loadmore,setLoadmore] = React.useState('')
     const [isLoading,setIsLoading] =React.useState(false)
+    const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     React.useEffect(()=>{
           const data = dummyData.categories.slice(0,limit);
           categoryList =[...data];
             setCategoryList(categoryList)
             setIsLoading(true)
+            AnimationFade().start();
     },[])
+
+    const AnimationFade =()=>{
+        return Animated.timing(fadeValue,{
+            toValue:2,
+            duration:3000,
+            useNativeDriver:true
+        })
+    }
 
     const refeshList =()=>{
         if( loadmore === 'Trở lại' && limit > dummyData.categories.length){
@@ -64,22 +74,20 @@ const CategoryComponent = ()=>{
               }}>
               <Text style={styles.loadMore}>{loadmore}</Text>
               </TouchableOpacity>
-             
-              
+                
           </View>
         <FlatList
      
         data={categoryList}
         renderItem={({item})=>(
-            <View style={styles.containerItem}>
+            <Animated.View style={[styles.containerItem,{opacity:fadeValue}]}>
             <ImageBackground style={styles.categoriesImg} source={item.image}>
             </ImageBackground>
             <View style={styles.containerText}>
             <Text style={styles.item}>{item.name}</Text>
             <Text style={styles.type}>{item.type}</Text>
             </View>
-            
-            </View>
+            </Animated.View>
                 
         )}
         keyExtractor={(item,index)=>item.id}

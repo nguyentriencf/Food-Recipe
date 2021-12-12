@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login, Recipe } from "./screens";
+import { Login, Recipe,SplashLoading } from "./screens";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -19,6 +19,10 @@ const App = () => {
                 <Stack.Screen
                     name="Login"
                     component={Login}
+                />
+                <Stack.Screen
+                    name="Splash"
+                    component={SplashLoading}
                 />
                 <Stack.Screen
                     name="Home"

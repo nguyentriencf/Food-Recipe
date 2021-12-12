@@ -25,7 +25,8 @@ const salt = require("../assets/icons/salt.png")
 const sugar = require("../assets/icons/sugar.png")
 const shrimp = require("../assets/icons/shrimp.png")
 const tomato = require("../assets/icons/tomato.png")
-
+const emptyItem =require('../assets/icons/empty-box-50.png')
+const notFound = require('../assets/icons/noSearch.webp')
 export default {
     bookmark,
     bookmarkFilled,
@@ -54,5 +55,7 @@ export default {
     pepper,
     salt,
     sugar,
-    cancle
+    cancle,
+    emptyItem,
+    notFound
 }

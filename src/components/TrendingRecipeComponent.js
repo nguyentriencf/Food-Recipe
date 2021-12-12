@@ -1,28 +1,12 @@
 import React from "react"
 import {Image,TouchableOpacity ,FlatList, ImageBackground, StyleSheet,View,Text,SafeAreaView }
  from "react-native"
- import { moderateScale } from "react-native-size-matters";
+ import { moderateScale, s } from "react-native-size-matters";
 import localStorage from '../adapters/infrastructures/localStorage'
 import { COLORS, FONTS,icons } from "../../constants"
 
-const TrendingRecipe  = () =>{
-    let [foodList,setFoodList] = React.useState([])
-    React.useEffect(async()=>{
-      const storage =new localStorage();
-        const foodList =  storage.get('foodList');
-        foodList.then(stores =>{
-            stores.map( (result,i,store)=>{   
-            if (store[i][1] !== null){
-             items = JSON.parse(store[i][1]);
-             data =items.feed;
-             setFoodList([...data])
-            }else{
-                console.log("empty");
-            }
-        })   
-          });         
-        
-    },[])
+const TrendingRecipe  = ({props}) =>{
+    let [foodList,setFoodList] = React.useState([...props[0].feed])
     return(
      
           <View style={style.containerFood}>
@@ -37,6 +21,9 @@ const TrendingRecipe  = () =>{
              horizontal={true}
              renderItem={({item})=>(
                 <ImageBackground style={style.bgImage} source={{uri:item.display.images[0].toString()}}>
+                <View style={style.containerReview}>
+                  <Text style={style.textReview}>{item.content.reviews.totalReviewCount} reviews</Text>
+                </View>
                 <View style={style.nameFood}>
 
                 <View style={style.infoFood}>
@@ -137,7 +124,21 @@ const style = StyleSheet.create({
       textTrending:{
             color:COLORS.black,
             ...FONTS.h2,
-        }
+        },
+      containerReview:{
+        backgroundColor:COLORS.transparentGray,
+        marginLeft:5,
+        marginTop:10,
+        padding:10,
+        borderRadius:14,
+        width:110,
+        height:40,
+      alignItems:'center'
+      },
+      textReview:{
+        color:'white',
+        ...FONTS.body3,
+      }
       
 })
 
