@@ -4,7 +4,11 @@ import {
     Text,
     TouchableOpacity,
     StatusBar,
-    ImageBackground
+    ImageBackground,
+    ScrollView,
+    TouchableWithoutFeedback,
+    Keyboard,
+    KeyboardAvoidingView
 } from 'react-native';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
@@ -99,10 +103,11 @@ const Login = ({ navigation }) => {
                 backgroundColor: COLORS.black
             }}
         >
-            <LoginScreen modalVisible={modalVisible} />
-             <StatusBar barStyle="light-content"/>
-            {renderHeader()}
+                      <LoginScreen modalVisible={modalVisible} />
+              <StatusBar barStyle="light-content"/>
+             {renderHeader()}
             {renderDetail()}
+          
         </View>
     )
 }

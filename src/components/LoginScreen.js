@@ -1,8 +1,13 @@
-import React, {useState} from "react";
-import { View,Text, StatusBar, Modal, StyleSheet,KeyboardAvoidingView,TextInput } from "react-native";
+import React, {useState,useEffect} from "react";
+import { View,Text, StatusBar, Modal, StyleSheet,KeyboardAvoidingView,TextInput,ScrollView, TouchableWithoutFeedback,Keyboard } from "react-native";
 import {COLORS,FONTS,SIZES,icons} from '../../constants';
 import {CustomButtonIcon,LoginForm} from '../components'
 const LoginScreen = ({modalVisible})=>{
+    console.log(modalVisible);
+    const[openModal,setOpenModal] = useState(modalVisible)
+    useEffect(()=>{
+        setOpenModal(modalVisible)
+    })
     const renderHeader =() =>{
         return(
             <View 
@@ -10,7 +15,7 @@ const LoginScreen = ({modalVisible})=>{
            >
                <CustomButtonIcon
                 icons={icons.back}
-                onPress={()=>console.log('pressed')}
+                onPress={()=>{setOpenModal(!openModal); {modalVisible=false}}}
                buttonContainerStyle={styles.customButtonIconStyle}
                />
                 <Text 
@@ -61,27 +66,37 @@ const LoginScreen = ({modalVisible})=>{
                />
 
                 </View>
-                <LoginForm/>
+                {/* <LoginForm/> */}
                 
             </View>
         )
     }
     return(
-        <KeyboardAvoidingView
-         behavior={Platform.OS === "ios" ? "padding" : "height"}
+         <Modal 
+        visible={openModal}
+        presentationStyle='fullScreen'
+        style={styles.containerModal}
         >
-             <Modal
-         visible={modalVisible}
-        presentationStyle='overFullScreen'
-      >
-         <StatusBar barStyle="light-content"/>
+        <KeyboardAvoidingView
+        style={{flex:1}}
+        //  behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+            <ScrollView>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      
+         {/* <StatusBar barStyle="light-content"/> */}
         <View   style={styles.viewContainer }>
         {renderHeader()}
         {renderFormalLogin()}
         </View>
-        </Modal>
+        
+                </TouchableWithoutFeedback>
+
+            </ScrollView>
+      
 
         </KeyboardAvoidingView>
+        </Modal>
        
     )
 }
@@ -137,5 +152,9 @@ const styles = StyleSheet.create({
                     justifyContent:'center',
                     alignItems:'center',
                     backgroundColor:'#171717'
-               }
+               },
+               containerModal:{
+                   flex:1
+                }
+               
 })
