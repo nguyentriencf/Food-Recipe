@@ -7,7 +7,8 @@ const LoginScreen = ({modalVisible})=>{
     const[openModal,setOpenModal] = useState(modalVisible)
     useEffect(()=>{
         setOpenModal(modalVisible)
-    })
+    },[modalVisible])
+ 
     const renderHeader =() =>{
         return(
             <View 
