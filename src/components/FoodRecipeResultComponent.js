@@ -10,16 +10,16 @@ import {Image,TouchableOpacity ,
  import { COLORS, FONTS,icons, animation} from "../../constants"
 
 const FoodRecipeResult  = ({props,nameFood}) =>{
-    let [foodList,setFoodList] = React.useState([])
+    let [foodList,setFoodList] = React.useState([...props])
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     const [showSpinner,setShowSpinner] = React.useState(true)
     React.useEffect(()=>{
-        setFoodList(props)
-        setTimeout(() => {
+     setFoodList(props)
+     setTimeout(() => {
           setShowSpinner(false)
           animationFade().start()
-        }, 4000);
-    },[])
+        }, 2000);
+    },[props])
 
     const animationFade=()=>{
       return  Animated.timing(fadeValue,{
@@ -29,7 +29,7 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
         })
     }
     return(
-           props.length ===0 ?
+      foodList.length ===0 ?
            <View style={style.conntainerNotFound}>
            <Image style={style.imgNotFound}  source={icons.notFound}></Image>
              <Text style={style.textNotFound}>Không có món ăn cần tìm!</Text>

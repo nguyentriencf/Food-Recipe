@@ -1,4 +1,4 @@
-export const filterData = [{name:"Fast food",id:"0"},
+export const filterData = [{name:"Fast",id:"0"},
                     {name:"Fish",id:"1"},
                     {name:"Salads",id:"2"},
                     {name:"Chicken",id:"3"},
@@ -7,8 +7,9 @@ export const filterData = [{name:"Fast food",id:"0"},
                     {name:"Quick and Easy",id:"6"},
                     {name:"Vegan",id:"7"},
                     {name:"Spaghetti",id:"8"},
-                    {name:"Italian food",id:"9"},
-                    {name:"Korean food",id:"10"},
+                    {name:"Italian",id:"9"},
+                    {name:"Korean",id:"10"},
                     {name:"Healthy",id:"11"},
-                    {name:"Indian food",id:"12"}
+                    {name:"Indian",id:"12"},
+                    {name:"Tofu",id:"13"}
                 ];

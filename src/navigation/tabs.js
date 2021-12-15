@@ -4,7 +4,7 @@ import {
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-import { Home } from "../screens"
+import { Home,Search } from "../screens"
 
 const Tab = createBottomTabNavigator()
 
@@ -26,7 +26,7 @@ const Tabs = ({route,navigation}) => {
             />
             <Tab.Screen
                 name="Search"
-               component={Home}
+               component={Search}
             />
             <Tab.Screen
                 name="Bookmark"

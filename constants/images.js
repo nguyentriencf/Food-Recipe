@@ -44,7 +44,20 @@ const UserProfile8 = require("../assets/images/dummy_profiles/profile-pic-8.png"
 const UserProfile9 = require("../assets/images/dummy_profiles/profile-pic-9.png")
 const UserProfile10 = require("../assets/images/dummy_profiles/profile-pic-10.png")
 
+const breakfast1 = require('../assets/images/recipes/breakfast1.jpg')
+const lunch = require('../assets/images/recipes/luch.jpg')
+const dinner = require('../assets/images/recipes/dinner.webp')
+const brunch = require('../assets/images/recipes/brunch.jpg')
+const dessert = require('../assets/images/recipes/dessert.jpg')
+const appetizer =require('../assets/images/recipes/appetizer.jpg')
 export default {
+    breakfast1,
+    lunch,
+    dinner,
+    brunch,
+    dessert,
+    appetizer,
+
     loginBackground,
     profile,
     recipe,

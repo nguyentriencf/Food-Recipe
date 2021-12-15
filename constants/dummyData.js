@@ -1,6 +1,88 @@
 import images from "./images"
 import icons from "./icons"
 
+const hintSearch =[
+    [{
+        id:1,
+        name:'chicken'
+    },
+    {
+        id:2,
+        name:'meat'
+    }],
+    [{
+        id:3,
+        name:'vegan'
+    },
+    {
+        id:4,
+        name:'Beef'
+    }],
+    [{
+        id:5,
+        name:'Quick and Easy'
+    },
+    {
+        id:6,
+        name:'Spaghetti'
+    }],
+    [{
+        id:7,
+        name:'Italian'
+    },
+    {
+        id:8,
+        name:'Korean'
+    }],
+    [{
+        id:9,
+        name:'Healthy'
+    },
+    {
+        id:10,
+        name:'Indian'
+    }],
+    [{
+        id:11,
+        name:'Tofu'
+    },
+    {
+        id:12,
+        name:'Salads'
+    }]
+]
+const categoriesSearch =[
+    {
+        id:1,
+        name:'Breakfast',
+        img:images.breakfast
+    },
+    {
+        id:2,
+        name:'Lunch',
+        img:images.lunch
+    },
+    {
+        id:3,
+        name:'Dinner',
+        img:images.dinner
+    },
+    {
+        id:4,
+        name:'Brunch',
+        img:images.brunch
+    },
+    {
+        id:5,
+        name:'Dessert',
+        img:images.dessert
+    },
+    {
+        id:6,
+        name:'Appetizer',
+        img:images.appetizer
+    }
+]
 const categories = [
     {
         id:1,
@@ -161,5 +243,7 @@ const categories = [
 ]
 
 export default {
-    categories
+    categories,
+    hintSearch,
+    categoriesSearch
 }

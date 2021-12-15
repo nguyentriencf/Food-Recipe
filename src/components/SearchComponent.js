@@ -26,8 +26,8 @@ const contains = ({name},query)=>{
     return false
 }
 const initDataFood =()=>{
-    const storage =new localStorage();
 
+    const storage =new localStorage();
     const foodListTrending =  storage.get('trendingListFood');
     foodListTrending.then(stores =>{
         stores.map( (result,i,store)=>{   
@@ -52,9 +52,6 @@ const initDataFood =()=>{
         }
     })   
       });
-    
-     
-    
 }
 
 const handleSearch = text =>{
@@ -118,7 +115,6 @@ const searchFood = (text)=>{
                                  <TouchableOpacity 
                                     onPress = {()=>{
                                         if(textInputFossued)
-                                      //  setModalVisible(false)
                                         setTextInputFossued(true)
                                         setShowHint(false)
                                         searchFood(valueInput)
@@ -161,7 +157,7 @@ const searchFood = (text)=>{
                                        
                                           
                                 }}>
-                         <Image style={styles.cancle} source={icons.cancle}/>
+                         <Image style={styles.cancle} source={icons.cancel1}/>
                          </TouchableOpacity>
                             </Animatable.View>
                         </View>
