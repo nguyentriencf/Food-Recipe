@@ -1,21 +1,27 @@
-import React from 'react';
+import React,{ useState }  from 'react';
 import {
     View,
     Text,
-    TouchableOpacity,
     StatusBar,
-    ImageBackground
+    ImageBackground,
+  
 } from 'react-native';
 import {images, COLORS, SIZES, FONTS} from "../../constants";
 import LinearGradient from 'react-native-linear-gradient';
-import {CustomButton} from "../components";
+import {CustomButton, LoginScreen,SignUpScreen} from "../components";
 const Login = ({ navigation }) => {
+    React.useEffect(()=>{
+        StatusBar.setHidden(true)
 
-   
+    },[]) 
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisibleSignUp, setModalVisibleSignUp] = useState(false);
+    
     const renderHeader =()=> {
             return (
             <View
-            style={{height: SIZES.height >700 ?"65%": "60%"}}>
+            style={{height: SIZES.height >700 ?"65%": "60%"}
+            }>
                 <ImageBackground
                 source={images.loginBackground}
                 style={{
@@ -65,18 +71,35 @@ const Login = ({ navigation }) => {
                  }}>
                      <CustomButton
                       buttonText="Login"
+                      buttonContainerStyle={{
+                          paddingVertical:18,
+                          borderRadius:20,
+                          paddingHorizontal:10
+                      }}
                      colors ={[COLORS.darkGreen,COLORS.lime]}
-                     onPress={()=>navigation.replace("Splash")}
+                     onPress={()=>setModalVisible(true)}
                      />
-                   
-                      {/* <CustomButton 
-                     buttonText="Sign Up"
+                      <CustomButton
+                      buttonText="Sign Up"
+                       buttonContainerStyle={{
+                        marginTop:SIZES.radius,
+                        paddingVertical:18,
+                          borderRadius:20,
+                          borderWidth:1,
+                          borderColor:COLORS.darkLime
+                      }}
                      colors ={[]}
-                     onPress={()=>navigation.replace("Home")}/> */}
-
+                     onPress={()=>setModalVisibleSignUp(true)}
+                     />
                  </View>
              </View>
          )
+     }
+     const handleChangeVisible =(isVisible)=>{
+             setModalVisible(isVisible);
+     }
+        const handleChangeVisibleSignUp =(isVisible)=>{
+             setModalVisibleSignUp(isVisible);
      }
     return (
         <View
@@ -84,12 +107,13 @@ const Login = ({ navigation }) => {
                 flex: 1,
                 backgroundColor: COLORS.black
             }}
-        >
-             <StatusBar barStyle="light-content"/>
-            {renderHeader()}
-            {renderDetail()}
-           
-        </View>
+         >
+          <LoginScreen value={modalVisible} onChange={handleChangeVisible}/> 
+      <SignUpScreen value={modalVisibleSignUp} onChange={handleChangeVisibleSignUp} />
+              <StatusBar barStyle="light-content"/>
+             {renderHeader()}
+            {renderDetail()}   
+        </View>     
     )
 }
 

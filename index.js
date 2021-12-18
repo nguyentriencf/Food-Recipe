@@ -5,5 +5,5 @@
 import {AppRegistry} from 'react-native';
 import App from './src/App';
 import {name as appName} from './app.json';
-import {Search} from './src/screens'
-AppRegistry.registerComponent(appName, () => App);
+import index from './src/index'
+AppRegistry.registerComponent(appName, () => index);

@@ -28,7 +28,15 @@ const shrimp = require("../assets/icons/shrimp.png")
 const tomato = require("../assets/icons/tomato.png")
 const emptyItem =require('../assets/icons/empty-box-50.png')
 const notFound = require('../assets/icons/noSearch.webp')
+const facebook = require("../assets/icons/facebook.png")
+const gmail = require("../assets/icons/gmail.png")
+const passwordChange =require('../assets/icons/icons8-password-reset-50.png')
+const logout = require("../assets/icons/icons8-logout-32.png")
+const arrow_right = require("../assets/icons/icons8-chevron-right-30.png")
 export default {
+    passwordChange,
+    logout,
+    arrow_right,
     bookmark,
     bookmarkFilled,
     back,
@@ -58,5 +66,7 @@ export default {
     sugar,
     cancle,
     emptyItem,
-    notFound
+    notFound,
+    facebook,
+    gmail
 }
