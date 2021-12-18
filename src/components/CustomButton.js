@@ -6,6 +6,7 @@ const CustomButton = ({buttonText, buttonContainerStyle,colors,onPress}) =>{
     if(colors.length > 0){
         return(
             <TouchableOpacity 
+            style={buttonContainerStyle}
                 onPress={onPress}
             >
                 <Text

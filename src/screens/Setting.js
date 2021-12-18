@@ -21,7 +21,7 @@ const Settings = ({ navigation })=>{
           <View style={styles.containner}>
           <View style={styles.title}>
               <Text style={{...FONTS.h1,marginLeft:10,marginTop:50}}>
-                  Settings
+                  Cài đặt
               </Text>
           </View>
         <View
@@ -54,7 +54,6 @@ const Settings = ({ navigation })=>{
                      <Image style={styles.icon} source={data[1].icon}></Image>
                     <Text style={styles.text}>{data[1].name}</Text>
                      </View>
-                     <Image style={styles.containnerIconRight} source={icons.arrow_right}></Image>      
                 </View>
              </TouchableOpacity>
          </View>

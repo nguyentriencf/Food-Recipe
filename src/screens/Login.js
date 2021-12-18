@@ -70,17 +70,20 @@ const Login = ({ navigation }) => {
                      justifyContent:'center'
                  }}>
                      <CustomButton
-                      buttonText="Login"
+                      buttonText="Đăng nhập"
                       buttonContainerStyle={{
                           paddingVertical:18,
                           borderRadius:20,
-                          paddingHorizontal:10
+                          paddingHorizontal:10,
+                          borderWidth:1,
+                          borderColor:COLORS.darkLime,
+                      
                       }}
                      colors ={[COLORS.darkGreen,COLORS.lime]}
                      onPress={()=>setModalVisible(true)}
                      />
                       <CustomButton
-                      buttonText="Sign Up"
+                      buttonText="Đăng ký"
                        buttonContainerStyle={{
                         marginTop:SIZES.radius,
                         paddingVertical:18,
@@ -88,7 +91,7 @@ const Login = ({ navigation }) => {
                           borderWidth:1,
                           borderColor:COLORS.darkLime
                       }}
-                     colors ={[]}
+                      colors ={[COLORS.darkGreen,COLORS.lime]}
                      onPress={()=>setModalVisibleSignUp(true)}
                      />
                  </View>

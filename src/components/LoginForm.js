@@ -3,11 +3,28 @@ import {Text,TextInput, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {CustomButton} from '../components';
 // import {images, COLORS, SIZES, FONTS} from "../../constants";
 import { AuthContext } from "../navigation/AuthProvider";
-import {COLORS} from '../../constants'
+import {COLORS,FONTS} from '../../constants'
 const LoginForm = () =>{
     const [email,setEmail] = React.useState('');
     const [password,setPassword] =React.useState('');
+    const [messageError,setMessageError] =React.useState('')
+    const [messageEmailError,setMessageEmailError] =React.useState('')
+    const [isError,setIsError] =React.useState(false)
     const {login} =React.useContext(AuthContext)
+    console.log(password.length)
+    const Login = ()=>{
+        login(email,password).then(()=>{
+          console.log('success')
+        }).catch((error)=>{
+            console.log(error)
+            setIsError(true)
+          const er =  String(error).split(':')[1]
+          const indexMessage = parseInt(er.indexOf(']'))+1;
+          const messageError = er.slice(indexMessage).trim();
+          if(messageError.includes('identifier')) setMessageEmailError('Email không tồn tại')
+          else setMessageError('Password không đúng')
+        })
+    }
     return(
         <View
         style ={styles.container}>
@@ -20,6 +37,12 @@ const LoginForm = () =>{
         style={styles.inputStyle}
        />
             </View>
+            {
+                messageEmailError ?     
+           <View>
+                <Text style={{color:'red',...FONTS.body3}}>{messageEmailError}</Text>
+           </View> : null
+            }
              <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Mật khẩu </Text>
                   <TextInput
@@ -28,18 +51,27 @@ const LoginForm = () =>{
                   textContentType="password"
                   keyboardAppearance='dark'
         style={styles.inputStyle}
-       />
+                 />
        </View>
-       
+       {
+           messageError ?     
+           <View>
+                <Text style={{color:'red',...FONTS.body3}}>{messageError}</Text>
+           </View> : null
+       }
        <View style={styles.viewContainer}>
-                    <CustomButton buttonText="Đăng nhập"
+                    {
+                        email.length !== 0 && password.length !== 0  ?   <CustomButton buttonText="Đăng nhập"
                       buttonContainerStyle={{
                           paddingVertical:18,
                           borderRadius:20,
                           paddingHorizontal:10
                       }}
                      colors ={[COLORS.darkGreen,COLORS.lime]}
-                     onPress={()=>login(email,password)}/>
+                     onPress={()=>                  
+                           Login()
+                       }/> : null 
+                    }
                      <View 
                       flexDirection="row"
 
@@ -58,8 +90,7 @@ const LoginForm = () =>{
                          fontWeight:'bold',
                          fontSize:15
                     }}
-                     >Đăng ký
-                     </Text>
+                     > Đăng ký </Text>
                      </TouchableOpacity>
                      </View>
        </View>

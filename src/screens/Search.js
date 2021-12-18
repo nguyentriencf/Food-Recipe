@@ -79,6 +79,7 @@ const Search = ()=>{
           <View style={styles.containnerHintSearch}>
           <TouchableOpacity
           onPress={()=>{
+            setValueSearch(item[0].name)
                 searchFood(item[0].name)
               
           }}>
@@ -90,6 +91,7 @@ const Search = ()=>{
           </TouchableOpacity>
         <TouchableOpacity
           onPress={()=>{
+            setValueSearch(item[1].name)
             searchFood(item[1].name)
           }}
         >

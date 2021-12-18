@@ -3,12 +3,11 @@ import { View,Text, StatusBar, Modal, StyleSheet,KeyboardAvoidingView,TextInput,
 import {COLORS,FONTS,SIZES,icons} from '../../constants';
 import {CustomButtonIcon,LoginForm} from '../components'
 const LoginScreen = (props)=>{
-    console.log(props)
     const[openModal,setOpenModal] = useState(props.value)
-        React.useEffect(()=>{
-                setOpenModal(props.value)
-        })
 
+    React.useEffect(()=>{
+                setOpenModal(props.value)
+    })
 
     const callChangeVisible =()=>{
         props.onChange(false)
@@ -114,7 +113,8 @@ const styles = StyleSheet.create({
                   paddingHorizontal:SIZES.padding,
                   flexDirection:"row",
                 width:'100%',
-                height:100
+                height:100,
+                top:20
              },
     customButtonIconStyle:{
                     marginTop:SIZES.radius,

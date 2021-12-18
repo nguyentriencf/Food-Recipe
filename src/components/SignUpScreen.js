@@ -4,10 +4,10 @@ import {COLORS,FONTS,SIZES,icons} from '../../constants';
 import {CustomButtonIcon,SignUpForm} from '../components'
 const SignUpScreen = (props)=>{
     const[openModal,setOpenModal] = useState(props.value)
-        React.useEffect(()=>{
+       
+    React.useEffect(()=>{
                 setOpenModal(props.value)
         })
-
 
     const callChangeVisible =()=>{
         props.onChange(false)
@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
                   paddingHorizontal:SIZES.padding,
                   flexDirection:"row",
                 width:'100%',
-                height:100
+                height:100,
+                top:20
              },
     customButtonIconStyle:{
                     marginTop:SIZES.radius,
