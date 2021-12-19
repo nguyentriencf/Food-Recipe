@@ -9,10 +9,11 @@ const Search = ()=>{
     const [textInputFossued,setTextInputFossued] = React.useState(true)
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     const textInput = React.useRef(0)
-    const [valueSearch,setValueSearch] =React.useState('')
+    let [valueSearch,setValueSearch] =React.useState('')
     const [dataResult,setDataResult] = React.useState([])
     const [dataSearch,setDataSearch] =React.useState([])
     const [showHint,setShowHint] =React.useState(true)
+
     React.useEffect(()=>{
        //   animationFade().start()
        const storage =new localStorage();
@@ -42,18 +43,16 @@ const Search = ()=>{
          });
        
     },[])
-
-    const searchFood = (text)=>{
-        if(text.length !==0){
-          setValueSearch(text)
-          console.log(text);
-          const tmpData = dataSearch;
-         const rs = tmpData.filter(item => item.display.displayName.toLowerCase().includes(text.toLowerCase().trim()))
-         setShowHint(false)
-         setDataResult(rs)
-      
-        }
-   
+  
+  const searchFood = (text)=>{
+    if(text.length !==0){
+      const tmpData = dataSearch;
+      const search = text.toLowerCase().trim()
+      setValueSearch(search)
+     const rs = tmpData.filter(item => item.display.displayName.toLowerCase().includes(search))
+     setShowHint(false)
+     setDataResult(rs) 
+    }
   }
 
     const updateText =text=>{
@@ -79,8 +78,8 @@ const Search = ()=>{
           <View style={styles.containnerHintSearch}>
           <TouchableOpacity
           onPress={()=>{
-            setValueSearch(item[0].name)
-                searchFood(item[0].name)
+            const food  = String(item[0].name)
+            searchFood(food)
               
           }}>
           <View style={[styles.containnerMultiRow,{backgroundColor:colorsHint[index]}]}>
@@ -89,10 +88,11 @@ const Search = ()=>{
             </Text>
           </View>
           </TouchableOpacity>
+
         <TouchableOpacity
           onPress={()=>{
-            setValueSearch(item[1].name)
-            searchFood(item[1].name)
+            const food  = String(item[1].name)
+            searchFood(food)
           }}
         >
         <View style={[styles.containnerMultiRow,{backgroundColor:colorsHint[index]}]}>
@@ -105,7 +105,7 @@ const Search = ()=>{
            
           </View>
         );
-      },[]);
+      });
       const animationFade=()=>{
         return  Animated.timing(fadeValue,{
           toValue:1,
@@ -144,8 +144,6 @@ const Search = ()=>{
                                     >
                                  <TouchableOpacity 
                                     onPress = {()=>{
-                                       // if(textInputFossued)
-                                       // setTextInputFossued(true)
                                         searchFood(valueSearch)
                                             }}
                                  >

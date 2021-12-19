@@ -1,8 +1,8 @@
 import React from "react";
 import { FlatList,View,Text,StyleSheet,Image,TouchableOpacity,Alert } from "react-native";
 import { FONTS,COLORS,icons } from "../../constants";
-import auth from '@react-native-firebase/auth';
 import { AuthContext } from "../navigation/AuthProvider";
+
 const Settings = ({ navigation })=>{
     const [data,setData] = React.useState(
     [
@@ -28,7 +28,7 @@ const Settings = ({ navigation })=>{
         style={{top:30}}>   
              <TouchableOpacity
              onPress={()=>{
-                console.log('change password')
+                navigation.navigate('ChangePassword')
              }}>
                 <View style={styles.containnerItem}>
                      <View style={styles.containnerIconLeft}>
@@ -40,7 +40,8 @@ const Settings = ({ navigation })=>{
              </TouchableOpacity>
              <TouchableOpacity
              onPress={()=>{
-              Alert.alert("Đăng xuất","Bạn có muốn đăng xuất không?",[
+              Alert.alert("Đăng xuất","Bạn có muốn đăng xuất không?",
+              [
                 {
                 text: "Huỷ",
                 onPress: () => console.log("Cancel Pressed"),
@@ -54,6 +55,7 @@ const Settings = ({ navigation })=>{
                      <Image style={styles.icon} source={data[1].icon}></Image>
                     <Text style={styles.text}>{data[1].name}</Text>
                      </View>
+                     <Image style={styles.containnerIconRight} source={icons.arrow_right}></Image>      
                 </View>
              </TouchableOpacity>
          </View>

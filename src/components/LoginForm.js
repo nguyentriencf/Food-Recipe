@@ -4,12 +4,17 @@ import {CustomButton} from '../components';
 // import {images, COLORS, SIZES, FONTS} from "../../constants";
 import { AuthContext } from "../navigation/AuthProvider";
 import {COLORS,FONTS} from '../../constants'
+import SignUpScreen from "./SignUpScreen";
 const LoginForm = () =>{
     const [email,setEmail] = React.useState('');
     const [password,setPassword] =React.useState('');
     const [messageError,setMessageError] =React.useState('')
     const [messageEmailError,setMessageEmailError] =React.useState('')
     const [isError,setIsError] =React.useState(false)
+    const [isFocusedEmail,setIsFocusedEmail] =React.useState(false)
+    const [isFocusedPass,setIsFocusedPass] =React.useState(false)
+    const [isOpenRegister,setIsOpenRegister] =React.useState(false)
+    const [modalVisible, setModalVisible] = React.useState(false);
     const {login} =React.useContext(AuthContext)
     console.log(password.length)
     const Login = ()=>{
@@ -25,16 +30,22 @@ const LoginForm = () =>{
           else setMessageError('Password không đúng')
         })
     }
+    const handleChangeVisible =(isVisible)=>{
+        setModalVisible(isVisible);
+        setIsOpenRegister(false)
+}
     return(
         <View
         style ={styles.container}>
             <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Email</Text>
                   <TextInput
+                    onFocus={()=>{setIsFocusedEmail(true)}}
+                    onBlur={()=>{setIsFocusedEmail(false)}}
                   value={email}
                   onChangeText={(text)=>setEmail(text)}
                   keyboardAppearance='dark'
-        style={styles.inputStyle}
+                  style={[styles.inputStyle,{borderColor : isFocusedEmail ? COLORS.lightGreen2 : '#1f1f1f'}]}
        />
             </View>
             {
@@ -46,11 +57,13 @@ const LoginForm = () =>{
              <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Mật khẩu </Text>
                   <TextInput
+                   onFocus={()=>{setIsFocusedPass(true)}}
+                    onBlur={()=>{setIsFocusedPass(false)}}
                   value={password}
                   onChangeText={(text)=>setPassword(text)}
                   textContentType="password"
                   keyboardAppearance='dark'
-        style={styles.inputStyle}
+                  style={[styles.inputStyle,{borderColor : isFocusedPass ? COLORS.lightGreen2 : '#1f1f1f'}]}
                  />
        </View>
        {
@@ -83,7 +96,10 @@ const LoginForm = () =>{
                     }}>
                          {`Bạn đã có tài khoản? `}
                      </Text>
-                     <TouchableOpacity>
+                     <TouchableOpacity onPress={()=>{
+                            setIsOpenRegister(true)
+                            setModalVisible(true)
+                     }} >
                          <Text 
                          style={{
                          color:COLORS.darkGreen,
@@ -94,6 +110,7 @@ const LoginForm = () =>{
                      </TouchableOpacity>
                      </View>
        </View>
+       { isOpenRegister ?  <SignUpScreen value={modalVisible} onChange={handleChangeVisible} /> : null}
        
             </View>
      

@@ -4,7 +4,7 @@ import {
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-import { Home,Search,Settings } from "../screens"
+import { Home,Search,Settings,SettingStack } from "../screens"
 
 const Tab = createBottomTabNavigator()
 
@@ -31,8 +31,8 @@ const Tabs = ({route,navigation}) => {
                 component={Home}
             />
             <Tab.Screen
-                name="Settings"
-               component={Settings}
+                name="Setting"
+               component={SettingStack}
             />
         </Tab.Navigator>
     )
