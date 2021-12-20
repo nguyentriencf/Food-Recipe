@@ -12,6 +12,12 @@ const Search = ()=>{
     let [valueSearch,setValueSearch] =React.useState('')
     const [dataResult,setDataResult] = React.useState([])
     const [dataSearch,setDataSearch] =React.useState([])
+    const [dataBreakFast,setDataBreakFast] =React.useState([])
+    const [dataLunch,setDataLunch] =React.useState([])
+    const [dataDinner,setDataDinner] =React.useState([])
+    const [dataBrunch,setDataBrunch] =React.useState([])
+    const [dataDessert,setDataDessert] =React.useState([])
+    const [dataAppetizer,setDataAppetizer] =React.useState([])
     const [showHint,setShowHint] =React.useState(true)
 
     React.useEffect(()=>{
@@ -30,6 +36,7 @@ const Search = ()=>{
              const items = JSON.parse(store[i][1]);
              const data = items.feed;
            const dataFood = dataTrending.concat(data);
+
             setDataSearch(dataFood)
              }else{
                  console.log("empty");
@@ -41,12 +48,132 @@ const Search = ()=>{
            }
        })   
          });
+
+      const breakfast = storage.get('breakfast')
+      breakfast.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+       setDataBreakFast(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      });
+      
+      const lunch = storage.get('lunch')
+      lunch.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+       setDataLunch(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      }); 
+
+      const dinner = storage.get('dinner')
+      dinner.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+        setDataDinner(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      }); 
+
+      const brunch = storage.get('brunch')
+      brunch.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+        setDataBrunch(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      }); 
+      
+      const dessert = storage.get('dessert')
+      dessert.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+        setDataDessert(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      }); 
+      
+      const appetizer = storage.get('appetizer')
+      appetizer.then(stores =>{
+        stores.map( (result,i,store)=>{   
+        if (store[i][1] !== null){
+        const items = JSON.parse(store[i][1]);
+        const data = items.feed;
+        setDataAppetizer(data)
+        }else{
+            console.log("empty");
+        }
+    })   
+      });   
        
     },[])
   
+  const searchCategoryFood = (name)=>{
+    let rs =[];
+      switch(name){
+        case 'Breakfast':
+           rs = dataBreakFast
+          setShowHint(false)
+          setDataResult(rs) 
+          break;
+        case 'Lunch':
+           rs = dataLunch
+            setShowHint(false)
+            setDataResult(rs) 
+          break;
+        case 'Dinner':
+            rs = dataDinner
+            setShowHint(false)
+            setDataResult(rs) 
+          break;  
+        case 'Brunch':
+            rs = dataBrunch
+            setShowHint(false)
+            setDataResult(rs) 
+          break;  
+        case 'Dessert':
+            rs = dataDessert
+            setShowHint(false)
+            setDataResult(rs) 
+          break;  
+        case 'Appetizer':
+            rs = dataAppetizer
+            setShowHint(false)
+            setDataResult(rs) 
+          break;                   
+      }
+  }
+
   const searchFood = (text)=>{
     if(text.length !==0){
-      const tmpData = dataSearch;
+     const allFood = dataSearch.concat(dataBreakFast)
+                               .concat(dataLunch)
+                               .concat(dataDinner)
+                               .concat(dataBrunch)
+                               .concat(dataDessert)
+                               .concat(dataAppetizer);
+      const tmpData = allFood;
       const search = text.toLowerCase().trim()
       setValueSearch(search)
      const rs = tmpData.filter(item => item.display.displayName.toLowerCase().includes(search))
@@ -119,7 +246,11 @@ const Search = ()=>{
                 return (
                     <Animated.View  animation = {textInputFossued?"fadeInLeft":""}
                                                                 duration = {400}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                      onPress = {()=>{
+                        searchCategoryFood(item.name)
+                      }}
+                    >
                     <ImageBackground style={styles.bgImage} source={item.img}>
                             <View style={styles.conntainerTextImage}>
                                 <Text style={styles.textImage}>
@@ -131,9 +262,9 @@ const Search = ()=>{
               
                 </Animated.View>
                 )
-      },[])
-      const keyExtractor = React.useCallback((item) => {
-        return item.id;
+      })
+      const keyExtractor = React.useCallback((item,index) => {
+        return String(index);
       }, []);
         return(
             <View style={styles.containner}>
@@ -220,7 +351,7 @@ const Search = ()=>{
                            scrollEnabled={false}
                            numColumns={2}
                            renderItem={renderItemCategory}
-                           keyExtractor={(item)=>item.id}
+                           keyExtractor={keyExtractor}
                            >
                            </FlatList>
                            </View>

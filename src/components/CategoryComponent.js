@@ -1,11 +1,10 @@
 import React from 'react'
 import { FlatList,View,Text,StyleSheet,ImageBackground,TouchableOpacity,
-ActivityIndicator,Animated }
+ActivityIndicator,Animated,Modal }
  from "react-native";
 import{FONTS,COLORS,dummyData} from '../../constants';
 import { moderateScale } from "react-native-size-matters";
-
-
+import RecipeCategoryResult from './SearchCategoryComponent';
 const CategoryComponent = ()=>{
    
     let [categoryList,setCategoryList] = React.useState([])
@@ -13,6 +12,8 @@ const CategoryComponent = ()=>{
     const [loadmore,setLoadmore] = React.useState('')
     const [isLoading,setIsLoading] =React.useState(false)
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
+    const [isVisible,setIsVisible] = React.useState(false)
+    const [nameResult,setnameResult] =React.useState('')
     React.useEffect(()=>{
           const data = dummyData.categories.slice(0,limit);
           categoryList =[...data];
@@ -52,6 +53,10 @@ const CategoryComponent = ()=>{
         }
    
     }
+    const onChange = (isChange)=>{
+        setIsVisible(isChange)
+        setnameResult('')
+    }
 
     const handleLoadMore= ()=>{
         setIsLoading(true)
@@ -80,21 +85,30 @@ const CategoryComponent = ()=>{
      
         data={categoryList}
         renderItem={({item})=>(
-            <Animated.View style={[styles.containerItem,{opacity:fadeValue}]}>
-            <ImageBackground style={styles.categoriesImg} source={item.image}>
+            <TouchableOpacity onPress={()=>{
+                setIsVisible(true)
+                setnameResult(item.name)
+            }}>
+            <Animated.View style={[styles.containerItem,{opacity:fadeValue}]}> 
+           <ImageBackground style={styles.categoriesImg} source={item.image}>
             </ImageBackground>
             <View style={styles.containerText}>
             <Text style={styles.item}>{item.name}</Text>
             <Text style={styles.type}>{item.type}</Text>
             </View>
             </Animated.View>
-                
+            </TouchableOpacity>
         )}
         keyExtractor={(item,index)=>item.id}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0}
         ListFooterComponent={renderLoading}
         />
+
+        {
+            isVisible ? 
+            <RecipeCategoryResult nameFood={nameResult} onChange={onChange}/> : null
+        }
         </View>
         
     )

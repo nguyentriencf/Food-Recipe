@@ -27,7 +27,7 @@ class FoodRepository{
             method: 'GET',
             url: 'https://yummly2.p.rapidapi.com/feeds/search',
             params: {
-              maxResult: '5',
+              maxResult: '18',
               start: '0',
               FAT_KCALMax: '1000',
            //   allowedAttribute: 'diet-lacto-vegetarian,diet-low-fodmap',

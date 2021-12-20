@@ -11,5 +11,6 @@ export const filterData = [{name:"Fast",id:"0"},
                     {name:"Korean",id:"10"},
                     {name:"Healthy",id:"11"},
                     {name:"Indian",id:"12"},
-                    {name:"Tofu",id:"13"}
+                    {name:"Tofu",id:"13"},
+                    {name:"Bread",id:"14"}
                 ];

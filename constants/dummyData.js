@@ -49,6 +49,14 @@ const hintSearch =[
     {
         id:12,
         name:'Salads'
+    }],
+    [{
+        id:13,
+        name:'Bread'
+    },
+    {
+        id:14,
+        name:'Soup'
     }]
 ]
 const categoriesSearch =[

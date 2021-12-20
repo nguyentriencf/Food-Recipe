@@ -4,13 +4,21 @@ import LottieView from 'lottie-react-native';
 import  {animation,FONTS,COLORS}  from "../../constants";
 import FoodRecipeResult from "../components/FoodRecipeResultComponent";
 import localStorage from '../adapters/infrastructures/localStorage'
+import DataFoodStorage from "../adapters/repositories/dataFoodStorage";
 const SplashLoading = ({navigation })=>{
 
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     const [modalVisible,setModalVisible] =React.useState(true)
     let [foodListPopular,setFoodPopular] = React.useState([])
     React.useEffect(()=>{
-          const storage =new localStorage();
+        
+       // DataFoodStorage.breakfast();
+        // DataFoodStorage.lunch();
+       // DataFoodStorage.dinner();
+      //  DataFoodStorage.brunch(); 
+     // DataFoodStorage.dessert(); 
+     //DataFoodStorage.appetizer()   
+        const storage =new localStorage();
         const foodList =  storage.get('foodList');
         foodList.then(stores =>{
             stores.map( (result,i,store)=>{   

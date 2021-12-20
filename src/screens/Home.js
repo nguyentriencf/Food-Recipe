@@ -34,7 +34,7 @@ const Home = ({navigation,route}) => {
         <View style={styles.containerHeader}>
              <View style={styles.header}>
              <Text style={styles.textTitle}>
-             Xin chào Nguyen Mau Tuan,
+                 Xin chào Nguyen Mau Tuan,
              </Text>
              <Text style={styles.textSmall}>
                  Hôm nay bạn muốn nấu món gì?
