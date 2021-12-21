@@ -11,11 +11,16 @@ import {Image,TouchableOpacity ,
  import { COLORS, FONTS,icons, animation} from "../../constants"
 import FoodRepository from "../adapters/repositories/FoodRepository"
 import localStorage from "../adapters/infrastructures/localStorage"
+import {RecipeComponent} from '../components'
 const RecipeCategoryResult  = (props) =>{
     console.log(props)
     let [foodList,setFoodList] = React.useState([])
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     const [showSpinner,setShowSpinner] = React.useState(true)
+    const [openModal, setOpenModal] = React.useState(false)
+    const [bookMark,setBookMark] = React.useState([]);
+    const [item,setItem] = React.useState({})
+    const [openModalDetail, setOpenModalDetail] = React.useState(false)
     React.useEffect(()=>{
           FoodRepository.searchFood(props.nameFood).then((data)=>{
               const result = data.feed;
@@ -26,6 +31,12 @@ const RecipeCategoryResult  = (props) =>{
           })
   
     },[])
+    function onChangeModal(value){
+      setItem(value);
+    }
+    function setStateModal(state){
+        setOpenModal(state);
+    }
 
     const closeModal = ()=>{
         props.onChange(false)
@@ -41,7 +52,7 @@ const RecipeCategoryResult  = (props) =>{
     return(
         <Modal
         style={style.containnerModal}
-         animationType = "fade"
+         animationType = 'slide'
             transparent = {false}
             visible = {true}>
             {
@@ -90,6 +101,9 @@ const RecipeCategoryResult  = (props) =>{
         data={foodList}
         renderItem={({item})=>(
              <Animated.View style={{opacity:fadeValue}}>
+             <TouchableOpacity style={{flex:1}} onPress={()=>{
+                  setItem(item), setOpenModalDetail(true);
+                }}>
             <ImageBackground style={style.bgImage} source={{uri:item.display.images[0].toString()}}>
             <View style={style.containerReview}>
                   <Text style={style.textReview}>{item.content.reviews.totalReviewCount} reviews</Text>
@@ -118,13 +132,18 @@ const RecipeCategoryResult  = (props) =>{
 
             </View>
             </ImageBackground>
+            </TouchableOpacity>
         </Animated.View>
             
         )}
         numColumns={2}
         keyExtractor={(item,index) =>item.content.details.recipeId}
         />
-        
+           <View>
+         {!openModalDetail ? 
+          null : <RecipeComponent foodSelect={item} onChange={onChangeModal} value={openModalDetail} setStateModal={setStateModal}/>}
+
+         </View>
         </View> 
             }
         

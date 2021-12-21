@@ -5,6 +5,7 @@ import SplashLoading from "./splashLoading"
 import Search  from "./Search"
 import Settings from "./Setting"
 import SettingStack from "./SettingStack"
+import BookMark from "./BookMark"
 export {
     Login,
     Home,
@@ -12,5 +13,6 @@ export {
     SplashLoading,
     Search,
     Settings,
-    SettingStack
+    SettingStack,
+    BookMark
 }

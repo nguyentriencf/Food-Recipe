@@ -8,11 +8,15 @@ import {Image,TouchableOpacity ,
  import LottieView from 'lottie-react-native'
  import { moderateScale, s } from "react-native-size-matters"
  import { COLORS, FONTS,icons, animation} from "../../constants"
-
+ import AsyncStorage from '@react-native-async-storage/async-storage'
+ import {RecipeComponent} from '../components'
 const FoodRecipeResult  = ({props,nameFood}) =>{
     let [foodList,setFoodList] = React.useState([...props])
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
     const [showSpinner,setShowSpinner] = React.useState(true)
+    const [item,setItem] = React.useState({})
+    const [openModal, setOpenModal] = React.useState(false)
+
     React.useEffect(()=>{
      setFoodList(props)
      setTimeout(() => {
@@ -21,6 +25,12 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
         }, 2000);
     },[props])
 
+  function onChangeModal(value){
+      setItem(value);
+    }
+    function setStateModal(state){
+        setOpenModal(state);
+    }
     const animationFade=()=>{
       return  Animated.timing(fadeValue,{
         toValue:1,
@@ -28,6 +38,34 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
         useNativeDriver:true
         })
     }
+    const checkExistFood = (item,food)=>{
+      return item.content.details.id !==food.content.details.id;
+  }
+    const updateBookMark = (food) =>{
+      let foods = [];
+
+          const bookMark = AsyncStorage.multiGet(['bookMarkStorage']);
+      bookMark.then( (stores) =>{
+          stores.map(async (result,i,store)=>{   
+          if (store[i][1] !== null){
+          const  items = JSON.parse(store[i][1]);
+                  const data = items
+                 const isExist=  data.findIndex(item=>item.content.details.id===food.content.details.id)
+                  if( isExist !== -1){
+                        foods = data.filter(item=>checkExistFood(item,food))
+                  }else{
+                      foods  = [...data,food];
+                  }
+               
+                 let item = ['bookMarkStorage',JSON.stringify(foods)]
+                 await AsyncStorage.multiSet([item])
+          }else{
+               let item = ['bookMarkStorage',JSON.stringify([food])]
+                 await AsyncStorage.multiSet([item]);
+          }
+      })   
+        });  
+  }
     return(
       foodList.length ===0 ?
            <View style={style.conntainerNotFound}>
@@ -56,6 +94,9 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
         data={foodList}
         renderItem={({item})=>(
              <Animated.View style={{opacity:fadeValue}}>
+                  <TouchableOpacity style={{flex:1}} onPress={()=>{
+                  setItem(item), setStateModal(true);
+                }}>
             <ImageBackground style={style.bgImage} source={{uri:item.display.images[0].toString()}}>
             <View style={style.containerReview}>
                   <Text style={style.textReview}>{item.content.reviews.totalReviewCount} reviews</Text>
@@ -69,7 +110,7 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
 
               
             <View style={style.viewBookmark}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>updateBookMark(item)}>
             <Image style={style.bookmark} source={icons.bookmark}/>
             </TouchableOpacity>
             </View>
@@ -84,13 +125,18 @@ const FoodRecipeResult  = ({props,nameFood}) =>{
 
             </View>
             </ImageBackground>
+            </TouchableOpacity>
         </Animated.View>
             
         )}
         numColumns={2}
         keyExtractor={(item,index) =>item.content.details.recipeId}
         />
-        
+           <View>
+         {!openModal ? 
+          null : <RecipeComponent foodSelect={item} onChange={onChangeModal} value={openModal} setStateModal={setStateModal}/>}
+
+      </View>
         </View>
       
    

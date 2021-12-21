@@ -16,7 +16,6 @@ const LoginForm = () =>{
     const [isOpenRegister,setIsOpenRegister] =React.useState(false)
     const [modalVisible, setModalVisible] = React.useState(false);
     const {login} =React.useContext(AuthContext)
-    console.log(password.length)
     const Login = ()=>{
         login(email,password).then(()=>{
           console.log('success')

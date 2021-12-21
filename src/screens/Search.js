@@ -21,7 +21,6 @@ const Search = ()=>{
     const [showHint,setShowHint] =React.useState(true)
 
     React.useEffect(()=>{
-       //   animationFade().start()
        const storage =new localStorage();
        const foodListTrending =  storage.get('trendingListFood');
        foodListTrending.then(stores =>{
