@@ -5,6 +5,7 @@ import  {animation,FONTS,COLORS}  from "../../constants";
 import FoodRecipeResult from "../components/FoodRecipeResultComponent";
 import localStorage from '../adapters/infrastructures/localStorage'
 import DataFoodStorage from "../adapters/repositories/dataFoodStorage";
+import FoodRepository from "../adapters/repositories/FoodRepository";
 const SplashLoading = ({navigation })=>{
 
     const [fadeValue,setFadeValue] =React.useState(new Animated.Value(0))
@@ -27,7 +28,10 @@ const SplashLoading = ({navigation })=>{
              foodListPopular =items;
              setFoodPopular([...foodListPopular.feed])
             }else{
-                console.log("empty");
+                 FoodRepository.getListFood().then(async(data)=>{
+                     const storage = new localStorage()
+                    await storage.set('foodList',data)
+                 })
             }
         })   
           });     
