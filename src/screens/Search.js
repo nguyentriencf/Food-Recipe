@@ -35,7 +35,6 @@ const Search = ()=>{
              const items = JSON.parse(store[i][1]);
              const data = items.feed;
            const dataFood = dataTrending.concat(data);
-
             setDataSearch(dataFood)
              }else{
                  console.log("empty");

@@ -56,6 +56,7 @@ const LoginForm = () =>{
              <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Mật khẩu </Text>
                   <TextInput
+                    secureTextEntry={true}
                    onFocus={()=>{setIsFocusedPass(true)}}
                     onBlur={()=>{setIsFocusedPass(false)}}
                   value={password}

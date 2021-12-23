@@ -63,6 +63,7 @@ const SignUpForm = () =>{
              <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Mật khẩu </Text>
                   <TextInput
+                    secureTextEntry={true}
                    onFocus={()=>{setIsFocusedPass(true)}}
                     onBlur={()=>{setIsFocusedPass(false)}}
                    value={password}
@@ -75,6 +76,7 @@ const SignUpForm = () =>{
             <View style={styles.viewContainer}>
                 <Text style={{color:'white',margin:10}}>Nhập lại mật khẩu </Text>
                   <TextInput
+                    secureTextEntry={true}
                    onFocus={()=>{setIsFocusedConfirmPass(true)}}
                     onBlur={()=>{setIsFocusedConfirmPass(false)}}
                    value={confirm}
